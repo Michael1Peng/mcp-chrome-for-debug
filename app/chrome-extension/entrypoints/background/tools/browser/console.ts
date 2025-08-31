@@ -85,7 +85,7 @@ class ConsoleTool extends BaseBrowserToolExecutor {
 
       // 简化返回结构，只包含文本消息
       const simpleMessages = result.messages.map((msg) => msg.text).filter((text) => text.trim());
-      const simpleText = simpleMessages.join('\n\n');
+      const simpleText = simpleMessages.join('\n\n---\n\n');
 
       return {
         content: [
@@ -216,13 +216,13 @@ class ConsoleTool extends BaseBrowserToolExecutor {
         } else if (method === 'Runtime.consoleAPICalled' && params) {
           // Convert Runtime.consoleAPICalled to Log.entryAdded format
           const logEntry = {
-            timestamp: params.timestamp,
+            // timestamp: params.timestamp,
             level: params.type || 'log',
             text: this.formatConsoleArgs(params.args || []),
-            source: 'console-api',
-            url: params.stackTrace?.callFrames?.[0]?.url,
-            lineNumber: params.stackTrace?.callFrames?.[0]?.lineNumber,
-            stackTrace: params.stackTrace,
+            // source: 'console-api',
+            // url: params.stackTrace?.callFrames?.[0]?.url,
+            // lineNumber: params.stackTrace?.callFrames?.[0]?.lineNumber,
+            // stackTrace: params.stackTrace,
             args: params.args,
           };
           collectedMessages.push(logEntry);
