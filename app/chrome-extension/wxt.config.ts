@@ -69,18 +69,19 @@ export default defineConfig({
       viteStaticCopy({
         targets: [
           {
-            src: 'inject-scripts/*.js',
-            dest: 'inject-scripts',
-          },
-          {
             src: ['workers/*'],
             dest: 'workers',
+          },
+          {
+            src: 'inject-scripts/*.js',
+            dest: 'inject-scripts',
           },
           {
             src: '_locales/**/*',
             dest: '_locales',
           },
         ],
+        silent: false,
       }) as any,
     ],
     build: {
