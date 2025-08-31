@@ -83,11 +83,15 @@ class ConsoleTool extends BaseBrowserToolExecutor {
         maxMessages,
       });
 
+      // 简化返回结构，只包含文本消息
+      const simpleMessages = result.messages.map((msg) => msg.text).filter((text) => text.trim());
+      const simpleText = simpleMessages.join('\n\n');
+
       return {
         content: [
           {
             type: 'text',
-            text: JSON.stringify(result),
+            text: simpleText,
           },
         ],
         isError: false,

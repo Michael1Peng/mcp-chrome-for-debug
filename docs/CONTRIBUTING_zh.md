@@ -67,6 +67,12 @@ chrome-mcp-server/
 └── docs/                    # 文档
 ```
 
+要修改这个文件，把当前的拓展ID加到 `AllowedOrigins` 里面。
+
+```
+/Users/michaelpeng/Library/Application Support/Google/Chrome/NativeMessagingHosts/com.chromemcp.nativehost.json
+```
+
 ## 🛠️ 开发工作流
 
 ### 添加新工具
