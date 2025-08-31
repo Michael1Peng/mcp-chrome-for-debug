@@ -6,10 +6,13 @@
   "version": "0.0.6",
   "type": "module",
   "scripts": {
-    "dev": "wxt",
+    "dev": "npm run clean:dev && wxt",
     "dev:firefox": "wxt -b firefox",
-    "build": "wxt build",
+    "build": "npm run clean:build && wxt build",
     "build:firefox": "wxt build -b firefox",
+    "clean:dev": "rimraf .output/chrome-mv3-dev",
+    "clean:build": "rimraf .output/chrome-mv3",
+    "clean": "rimraf .output",
     "zip": "wxt zip",
     "zip:firefox": "wxt zip -b firefox",
     "compile": "vue-tsc --noEmit",
@@ -32,6 +35,7 @@
     "@types/chrome": "^0.0.318",
     "@wxt-dev/module-vue": "^1.0.2",
     "dotenv": "^16.5.0",
+    "rimraf": "^6.0.1",
     "vite-plugin-static-copy": "^3.0.0",
     "vue-tsc": "^2.2.8",
     "wxt": "^0.20.0"
