@@ -38,13 +38,20 @@ cd chrome-mcp-server
 pnpm install
 ```
 
-3. **启动项目**
+3. **安装和配置 bridge 服务**
+
+```bash
+cd app/native-server/
+npm install -g .
+```
+
+4. **启动项目**
 
 ```bash
 npm run dev
 ```
 
-4. **在 Chrome 中加载扩展**
+5. **在 Chrome 中加载扩展**
    - 打开 `chrome://extensions/`
    - 启用"开发者模式"
    - 点击"加载已解压的扩展程序"，选择 `your/extension/dist`
